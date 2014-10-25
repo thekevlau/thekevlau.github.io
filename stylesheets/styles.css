@@ -24,6 +24,12 @@ h1 {
   font-size:28px;
 }
 
+section#headerspace {
+  width:500px;
+  float:right;
+  padding-bottom:45px;
+}
+
 h1#name {
   font-size:50px;
   margin: 0 0 0px;
@@ -167,7 +173,7 @@ header ul a strong {
 section {
   width:500px;
   float:right;
-  padding-bottom:50px;
+  padding-bottom:10px;
 }
 
 small {
