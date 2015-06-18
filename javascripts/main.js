@@ -6,12 +6,12 @@ var witty_quotes = [
     "Never forget what you are. The rest of the world will not. Wear it like armor, and it can never be used to hurt you.",
     "A mind needs books like a sword needs a whetstone.”",
 
-    // Jacken
+    // Jaqen
     "Valar Morghulis.",
 
     // Iroh
     "Sometimes life is like this dark tunnel, you can’t always see the light at the end of the tunnel, but if you just keep moving, you will come to a better place.",
-    "It is important to draw wisdom from different places. If you take it from only one place it become rigid and stale.",
+    "It is important to draw wisdom from different places. If you take it from only one place it will become rigid and stale.",
     "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
 
     // Pian Dao
