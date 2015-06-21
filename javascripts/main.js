@@ -45,7 +45,7 @@ var witty_quotes = [
     "*tap* *tap*",
 
     // Ed
-    "A lesson without pain is meaningless- you cannot gain anything without sacrificing something else in return. Although, if you can endure that pain and walk away from it, you'll find you have a heart strong enough to overcome any obstacle.. a heart made full metal."
+    "A lesson without pain is meaningless- you cannot gain anything without sacrificing something else in return. Although, if you can endure that pain and walk away from it, you'll find you have a heart strong enough to overcome any obstacle.. a heart made full metal.",
 
     // Other Sayings, Thoughts and Interesting Ideas
     "What you did yesterday doesn't matter. What counts is what you do today.",
