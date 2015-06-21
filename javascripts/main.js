@@ -4,7 +4,7 @@ console.log('This would be the main JS file.');
 var witty_quotes = [
     // Tyrion
     "Never forget what you are. The rest of the world will not. Wear it like armor, and it can never be used to hurt you.",
-    "A mind needs books like a sword needs a whetstone.”",
+    "A mind needs books like a sword needs a whetstone.",
 
     // Tywin
     "You're blessed with skills, knowledge and talent that few men possess. And you're still blessed with youth. What have you done with these blessings?",
