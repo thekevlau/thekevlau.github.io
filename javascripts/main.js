@@ -1,4 +1,4 @@
-console.log('This would be the main JS file.');
+console.log("Hey there! Hope you're having a great day!");
 
 
 var witty_quotes = [
@@ -9,7 +9,6 @@ var witty_quotes = [
     // Tywin
     "You're blessed with skills, knowledge and talent that few men possess. And you're still blessed with youth. What have you done with these blessings?",
     "Do you know what 'legacy' means? It's what you pass down to your children, and your children's children. It's what remains of you when you're gone.",
-    "You're too smart for your own good. Has anyone told you that?",
     "Aegon Targaryen changed the rules, that's why every child alive still knows his name. -- Aegon, and his sisters.",
 
     // Jaqen
@@ -41,16 +40,23 @@ var witty_quotes = [
     // Sherlock
     "I’m not a psychopath, Anderson. I’m a high-functioning sociopath. Do your research.",
 
-    // Francis Underwood
-    "*tap* *tap*",
+    // Harvey x Mike
+    "I'm inclined to give you a shot, but what if I decide to go another way? --I'd say that's fair. Sometimes I like to hang out with people who aren't that bright, you know, just to see how the other half lives.",
 
-    // Ed
-    "A lesson without pain is meaningless- you cannot gain anything without sacrificing something else in return. Although, if you can endure that pain and walk away from it, you'll find you have a heart strong enough to overcome any obstacle.. a heart made full metal.",
+    // Edward Elric
+    "A lesson without pain is meaningless- you cannot gain anything without sacrificing something else in return. Although, if you can endure that pain and walk away from it, you'll find you have a heart strong enough to overcome any obstacle- a heart made full metal.",
 
     // Other Sayings, Thoughts and Interesting Ideas
     "What you did yesterday doesn't matter. What counts is what you do today.",
     "男儿当自强",
     "此时不搏 更待何时",
+
+    // SC 2
+    "You must construct additional pylons.",
+
+    // Hearthstone
+    "The light shall bring victory!",
+    "For doomhammer!",
 
     // Julie Zhuo
     "Self awareness and proactivity.",
