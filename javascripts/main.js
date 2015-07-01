@@ -24,7 +24,7 @@ var witty_quotes = [
     "Sometimes life is like this dark tunnel, you can’t always see the light at the end of the tunnel, but if you just keep moving, you will come to a better place.",
     "It is important to draw wisdom from different places. If you take it from only one place it will become rigid and stale.",
     "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
-    "Who knocks at the garden gate?"
+    "Who knocks at the garden gate?",
 
     // Pian Dao
     "Creativity, versatility, intelligence. These are the traits that define a great (swords)man.",
@@ -34,6 +34,9 @@ var witty_quotes = [
 
     // Jeong Jeong
     "Learn restraint or risk destroying yourself and everything you love.",
+
+    // Irene Adler
+    //"Brainy’s the new sexy.",
 
     // Sherlock
     "I’m not a psychopath, Anderson. I’m a high-functioning sociopath. Do your research.",
@@ -67,7 +70,3 @@ var rand_num = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 var witty_quote = witty_quotes[rand_num];
 
 document.getElementById("wittyQuote").innerHTML = witty_quote;
-
-// Scrapped ideas
-    // Irene Adler
-    //"Brainy’s the new sexy.",
