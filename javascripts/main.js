@@ -1,4 +1,4 @@
-console.log("Hey there! Hope you're having a great day!");
+console.log("Hey there! Welcome to my website. Hope you're having a great day!");
 
 
 var witty_quotes = [
@@ -12,7 +12,7 @@ var witty_quotes = [
     "Aegon Targaryen changed the rules, that's why every child alive still knows his name. -- Aegon, and his sisters.",
 
     // Jaqen
-    "Valar Morghulis.",
+    "Valar Dohaeris.",
 
     // Laghima
     "Instinct is lie, told by a fearful body, hoping to be wrong.",
@@ -24,18 +24,19 @@ var witty_quotes = [
     "Sometimes life is like this dark tunnel, you can’t always see the light at the end of the tunnel, but if you just keep moving, you will come to a better place.",
     "It is important to draw wisdom from different places. If you take it from only one place it will become rigid and stale.",
     "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
+    "Who knocks at the garden gate?"
 
     // Pian Dao
     "Creativity, versatility, intelligence. These are the traits that define a great (swords)man.",
 
     // Roku
-    "It was bitter work, but the results were worth it.",
+    "It was bitter work, but the results...were worth it.",
 
     // Jeong Jeong
     "Learn restraint or risk destroying yourself and everything you love.",
 
     // Irene Adler
-    "Brainy’s the new sexy.",
+    //"Brainy’s the new sexy.",
 
     // Sherlock
     "I’m not a psychopath, Anderson. I’m a high-functioning sociopath. Do your research.",
