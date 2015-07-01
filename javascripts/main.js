@@ -35,9 +35,6 @@ var witty_quotes = [
     // Jeong Jeong
     "Learn restraint or risk destroying yourself and everything you love.",
 
-    // Irene Adler
-    //"Brainy’s the new sexy.",
-
     // Sherlock
     "I’m not a psychopath, Anderson. I’m a high-functioning sociopath. Do your research.",
 
@@ -70,3 +67,7 @@ var rand_num = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 var witty_quote = witty_quotes[rand_num];
 
 document.getElementById("wittyQuote").innerHTML = witty_quote;
+
+// Scrapped ideas
+    // Irene Adler
+    //"Brainy’s the new sexy.",
