@@ -26,7 +26,7 @@ var witty_quotes = [
     "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
 
     // Pian Dao
-    "Creativity, versatility, intelligence. These are the traits that define a great swordsman.",
+    "Creativity, versatility, intelligence. These are the traits that define a great (swords)man.",
 
     // Roku
     "It was bitter work, but the results were worth it.",
