@@ -42,7 +42,7 @@ var witty_quotes = [
     "I’m not a psychopath, Anderson. I’m a high-functioning sociopath. Do your research.",
 
     // Harvey x Mike
-    "I'm inclined to give you a shot, but what if I decide to go another way? --I'd say that's fair. Sometimes I like to hang out with people who aren't that bright, you know, just to see how the other half lives.",
+    "I'm inclined to give you a shot (at this job opening), but what if I decide to go another way? --I'd say that's fair. Sometimes I like to hang out with people who aren't that bright, you know, just to see how the other half lives.",
 
     // Edward Elric
     "A lesson without pain is meaningless- you cannot gain anything without sacrificing something else in return. Although, if you can endure that pain and walk away from it, you'll find you have a heart strong enough to overcome any obstacle- a heart made full metal.",
