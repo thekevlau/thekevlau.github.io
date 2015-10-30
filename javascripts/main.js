@@ -62,6 +62,9 @@ var witty_quotes = [
     // Julie Zhuo
     "Self awareness and proactivity.",
 
+    // Zoro
+    "There's no point in rushing. As we are, we won't stand a chance. We'll stop here and get stronger...and then set sail once more!"
+
 ];
 
 var maximum = witty_quotes.length-1;
