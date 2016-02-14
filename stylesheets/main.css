@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+
+body {
+    padding:50px;
+    font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#777;
+    font-weight:300;
+}
+
+h1#name {
+    font-size:50px;
+    margin: 0 0 0px;
+}
+
+a {
+    color:#279BEA;
+    font-weight:400;
+    text-decoration:none;
+}
+
+a:hover {
+    /* TODO: MAKE SURE THIS OVERRIDES*/
+}
+
+a small {
+    margin-top:-0.6em;
+}
+
+a:hover small {
+    /* TODO: MAKE SURE THIS OVERRIDES*/
+}
+
+code, pre {
+    font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal !important;
+}
+
+header {
+    /* TODO: we took out this line:
+    webkit-font-smoothing:subpixel-antialiased;
+    */
+}
+
+header ul {
+    background: #eee;
+    border:1px solid #d2d2d2;
+    width:270px;
+    box-shadow:inset #fff 0 1px 0, inset rgba(0,0,0,0.03) 0 -1px 0;
+
+    background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#dddddd));
+    background: -webkit-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+    background: -o-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+    background: -ms-linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+    background: linear-gradient(top, #f8f8f8 0%,#dddddd 100%);
+}
+
+header li {
+    border-right:1px solid #d2d2d2;
+}
+
+header li:first-child a {
+    /* TODO: THIS WAS DELETED*/
+}
+
+header li:last-child a {
+    /* TODO: THIS WAS DELETED*/
+}
+
+header ul a {
+    height:40px;
+}
+
+header ul a:hover {
+    /* TODO: THIS WAS DELETED*/
+
+}
+
+header ul a:active {
+    /* TODO: THIS WAS DELETED*/
+}
+
+header ul li + li {
+    width:88px;
+    border-left:1px solid #fff;
+}
+
+section {
+    padding-bottom:10px;
+    margin-top: 55px;
+
+}
+
+small {
+    font-size:13px;
+}
+
+footer > p {
+    width:860px;
+    /* TODO: THIS WAS DELETED
+    webkit-font-smoothing:subpixel-antialiased;
+    */
+}
+
+@media print, screen and (max-width: 480px) {
+    header ul {
+    display:none;
+    /* TODO: THIS WAS DELETED */
+    width: auto;
+    }
+    /* TODO: THIS WAS DELETED
+    header li, header ul li + li + li {
+        width:33%;
+    }
+    */
+}
+
+
