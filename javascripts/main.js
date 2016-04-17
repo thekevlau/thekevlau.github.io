@@ -21,7 +21,7 @@ var witty_quotes = [
     "Let go your earthly tether. Enter the void. Empty, and become wind.",
 
     // Iroh, Avatar the Last Airbender
-    "Sometimes life is like this dark tunnel, you can’t always see the light at the end of the tunnel, but if you just keep moving, you will come to a better place.",
+    "Sometimes life is like this dark tunnel- you can’t always see the light at the end of the tunnel. But if you just keep moving, you will come to a better place.",
     "It is important to draw wisdom from different places. If you take it from only one place it will become rigid and stale.",
     "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
     "Who knocks at the garden gate?",
@@ -60,14 +60,16 @@ var witty_quotes = [
     "For doomhammer!",
 
     // Julie Zhuo, Medium Blog Post
-    "Self awareness and proactivity.",
+    "Self awareness and proactivity. To know your strengths and weaknesses and to have the will to do something about it.",
+
+    // All Heroes, My Hero Academia
+    "Plus Ultra!",
 
     // Zoro, One Piece
     "There's no point in rushing. As we are, we won't stand a chance. We'll stop here and get stronger...and then set sail once more!"
 
 ];
-
-var maximum = witty_quotes.length-1;
+var maximum = witty_quotes.length - 1;
 var minimum = 0;
 var rand_num = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 var witty_quote = witty_quotes[rand_num];
