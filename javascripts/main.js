@@ -62,8 +62,8 @@ var witty_quotes = [
     // Julie Zhuo, Medium Blog Post
     "Self awareness and proactivity. To know your strengths and weaknesses and to have the will to do something about it.",
 
-    // All Heroes, My Hero Academia
-    "Plus Ultra!",
+    // UA Slogan, My Hero Academia
+    "A true hero is someone who overcomes life's misfortunes to go beyond. Plus Ultra!",
 
     // Zoro, One Piece
     "There's no point in rushing. As we are, we won't stand a chance. We'll stop here and get stronger...and then set sail once more!"
