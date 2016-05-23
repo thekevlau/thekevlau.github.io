@@ -25,6 +25,7 @@ var witty_quotes = [
     "It is important to draw wisdom from different places. If you take it from only one place it will become rigid and stale.",
     "In the darkest times, hope is something you give yourself. That is the meaning of inner strength.",
     "Who knocks at the garden gate?",
+    "The best tea tastes delicious whether it comes in a porcelain pot or a tin cup.",
 
     // Pian Dao, Avatar the Last Airbender
     "Creativity, versatility, intelligence. These are the traits that define a great (swords)man.",
