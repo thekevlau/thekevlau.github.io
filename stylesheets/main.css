@@ -114,10 +114,10 @@ footer > p {
     */
 }
 
-.project-item {
-    font-size:1.1em;
-}
-
 .project-section {
     margin-top: 0px;
+}
+
+.project-section li {
+    font-size:1.1em;
 }
