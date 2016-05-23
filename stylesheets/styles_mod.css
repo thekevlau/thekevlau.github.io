@@ -1,3 +1,8 @@
+/*This has CSS copied from the messed up styles file.
+That is being fixed relative to diff.css
+Eventually this will become the fixed main.css, I think
+*/
+
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
