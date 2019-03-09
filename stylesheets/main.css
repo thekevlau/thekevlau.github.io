@@ -99,7 +99,9 @@ small {
 }
 
 footer > p {
-    width:860px;
+    /* we want the footer paragraph width to change relative to to screen-width
+    so, specifying a fixed width is not the move*/
+    /*width:860px;*/
     /* TODO: THIS WAS DELETED
     webkit-font-smoothing:subpixel-antialiased;
     */
