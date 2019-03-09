@@ -75,4 +75,4 @@ var minimum = 0;
 var rand_num = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 var witty_quote = witty_quotes[rand_num];
 
-document.getElementById("wittyQuote").innerHTML = witty_quote;
+document.getElementById("wittyQuote").innerHTML = "\"" + witty_quote + "\"";
