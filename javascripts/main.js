@@ -67,7 +67,7 @@ var witty_quotes = [
     "A true hero is someone who overcomes life's misfortunes to go beyond. Plus Ultra!",
 
     // Zoro, One Piece
-    "There's no point in rushing. As we are, we won't stand a chance. We'll stop here and get stronger...and then set sail once more!"
+    "There's no point in rushing. As we are, we won't stand a chance. We'll stop here and get stronger...and then set sail for the Grand Line once more!"
 
 ];
 var maximum = witty_quotes.length - 1;
