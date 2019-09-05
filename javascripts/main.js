@@ -7,7 +7,7 @@ var witty_quotes = [
     "A mind needs books like a sword needs a whetstone.",
 
     // Tywin Lannister, Game of Thrones
-    "You're blessed with skills, knowledge and talent that few men possess. And you're still blessed with youth. What have you done with these blessings?",
+    "You're blessed with skills, knowledge, and talent that few men possess. And you're still blessed with youth. What have you done with these blessings?",
     "Do you know what 'legacy' means? It's what you pass down to your children, and your children's children. It's what remains of you when you're gone.",
     "Aegon Targaryen changed the rules, that's why every child alive still knows his name. -- Aegon, and his sisters.",
 
