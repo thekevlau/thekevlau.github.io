@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>priorities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --bg-soft: #f5f1ea;
+      --ink: #2a2826;
+      --ink-soft: #6b6660;
+      --ink-faint: #a8a39c;
+      --line: #ebe6dd;
+      --line-soft: #f0ebe2;
+
+      --sage: #c8d4bf;
+      --sage-soft: #e3ead9;
+      --blush: #ecd2c8;
+      --blush-soft: #f5e3db;
+      --lavender: #d6cee3;
+      --lavender-soft: #ebe5f0;
+
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 80px 32px 120px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* ── header ─────────────────────────────────────── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 96px;
+    }
+
+    .brand {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      font-style: normal;
+    }
+
+    .date {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ── section heading ────────────────────────────── */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 28px;
+      letter-spacing: -0.015em;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--ink-soft);
+    }
+
+    .section-meta {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ── top priorities ─────────────────────────────── */
+    .priorities {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .priority-card {
+      position: relative;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 28px 26px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .priority-card.filled {
+      background: var(--sage-soft);
+      border-color: var(--sage);
+    }
+
+    .priority-card.filled.done {
+      background: var(--bg-soft);
+      border-color: var(--line);
+    }
+
+    .priority-num {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--ink-faint);
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    .priority-text {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 19px;
+      line-height: 1.4;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+      flex-grow: 1;
+      cursor: text;
+      outline: none;
+      min-height: 60px;
+      transition: color 0.2s ease;
+    }
+
+    .priority-text:empty::before {
+      content: 'click to set your priority…';
+      color: var(--ink-faint);
+      font-style: italic;
+    }
+
+    .priority-card.done .priority-text {
+      color: var(--ink-faint);
+      text-decoration: line-through;
+      text-decoration-thickness: 0.5px;
+    }
+
+    .priority-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .priority-card:hover .priority-actions,
+    .priority-card.filled .priority-actions {
+      opacity: 1;
+    }
+
+    .priority-card:not(.filled) .priority-actions {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      color: var(--ink);
+    }
+
+    /* ── side quests ────────────────────────────────── */
+    .quest-controls {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid transparent;
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--ink-faint);
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--ink-soft);
+    }
+
+    .filter-btn.active {
+      color: var(--ink);
+      background: var(--bg-soft);
+      border-color: var(--line);
+    }
+
+    .quest-input-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+
+    .type-toggle {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .type-pill {
+      background: none;
+      border: 1px solid var(--line);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .type-pill[data-type='goal'].active {
+      background: var(--blush-soft);
+      border-color: var(--blush);
+      color: var(--ink);
+    }
+
+    .type-pill[data-type='bucket'].active {
+      background: var(--lavender-soft);
+      border-color: var(--lavender);
+      color: var(--ink);
+    }
+
+    #quest-input {
+      flex-grow: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 17px;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+
+    #quest-input::placeholder {
+      color: var(--ink-faint);
+      font-style: italic;
+    }
+
+    .quest-list {
+      list-style: none;
+      padding: 12px 0;
+      margin: -12px 0;
+    }
+
+    .quest-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line-soft);
+      transition: opacity 0.2s ease;
+    }
+
+    .quest-item:last-child {
+      border-bottom: none;
+    }
+
+    .quest-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1.5px;
+      background: var(--sage);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.12s ease;
+      border-radius: 2px;
+    }
+
+    .quest-item.drop-before::before {
+      top: -1px;
+      opacity: 1;
+    }
+
+    .quest-item.drop-after::before {
+      bottom: -1px;
+      opacity: 1;
+    }
+
+    .quest-item.dragging {
+      opacity: 0.35;
+    }
+
+    .drag-handle {
+      position: absolute;
+      left: -24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+      color: var(--ink-faint);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .quest-item:hover .drag-handle {
+      opacity: 0.55;
+    }
+
+    .drag-handle:hover {
+      opacity: 1 !important;
+    }
+
+    .drag-handle svg {
+      pointer-events: none;
+    }
+
+    .checkbox {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .checkbox:hover {
+      border-color: var(--ink-faint);
+    }
+
+    .quest-item.done .checkbox {
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+
+    .quest-item.done .checkbox::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 3px;
+      width: 8px;
+      height: 4px;
+      border-left: 1.5px solid var(--bg);
+      border-bottom: 1.5px solid var(--bg);
+      transform: rotate(-45deg);
+    }
+
+    .type-tag {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      width: 64px;
+      text-align: center;
+    }
+
+    .type-tag[data-type='goal'] {
+      background: var(--blush-soft);
+      color: #8b5a4d;
+    }
+
+    .type-tag[data-type='bucket'] {
+      background: var(--lavender-soft);
+      color: #6b5e8a;
+    }
+
+    .quest-text {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.5;
+      flex-grow: 1;
+      color: var(--ink);
+      cursor: text;
+      outline: none;
+      letter-spacing: -0.003em;
+    }
+
+    .quest-item.done .quest-text {
+      color: var(--ink-faint);
+      text-decoration: line-through;
+      text-decoration-thickness: 0.5px;
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--ink-faint);
+      opacity: 0;
+      transition: opacity 0.2s ease, color 0.2s ease;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .quest-item:hover .delete-btn {
+      opacity: 1;
+    }
+
+    .delete-btn:hover {
+      color: var(--ink);
+    }
+
+    .empty-state {
+      padding: 32px 0;
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ink-faint);
+      font-size: 15px;
+    }
+
+    /* ── footer ─────────────────────────────────────── */
+    footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ── responsive ─────────────────────────────────── */
+    @media (max-width: 600px) {
+      body {
+        padding: 48px 22px 80px;
+      }
+      header {
+        margin-bottom: 64px;
+      }
+      .section {
+        margin-bottom: 56px;
+      }
+      .priorities {
+        grid-template-columns: 1fr;
+      }
+      .section-title {
+        font-size: 24px;
+      }
+      .quest-input-row {
+        flex-wrap: wrap;
+      }
+      #quest-input {
+        order: 2;
+        width: 100%;
+        font-size: 16px;
+      }
+      .type-toggle {
+        order: 1;
+      }
+      .type-tag {
+        display: none;
+      }
+    }
+
+    /* subtle entrance */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .quest-item {
+      animation: fadeUp 0.3s ease both;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">priorities<span style="font-style: normal; color: var(--ink-faint);">.</span></div>
+      <div class="date" id="date"></div>
+    </header>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">top <em>priorities</em></h2>
+        <span class="section-meta">two only</span>
+      </div>
+      <div class="priorities">
+        <div class="priority-card" data-slot="0">
+          <div class="priority-num">i.</div>
+          <div class="priority-text" contenteditable="true" data-placeholder="click to set your priority…"></div>
+          <div class="priority-actions">
+            <button class="icon-btn" data-action="toggle">mark done</button>
+            <button class="icon-btn" data-action="clear">clear</button>
+          </div>
+        </div>
+        <div class="priority-card" data-slot="1">
+          <div class="priority-num">ii.</div>
+          <div class="priority-text" contenteditable="true" data-placeholder="click to set your priority…"></div>
+          <div class="priority-actions">
+            <button class="icon-btn" data-action="toggle">mark done</button>
+            <button class="icon-btn" data-action="clear">clear</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2 class="section-title">side <em>quests</em></h2>
+        <span class="section-meta" id="quest-count">0 open</span>
+      </div>
+
+      <div class="quest-controls">
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="goal">long-term goals</button>
+        <button class="filter-btn" data-filter="bucket">bucket list</button>
+        <button class="filter-btn" data-filter="done">completed</button>
+      </div>
+
+      <div class="quest-input-row">
+        <div class="type-toggle">
+          <button class="type-pill active" data-type="goal">goal</button>
+          <button class="type-pill" data-type="bucket">bucket</button>
+        </div>
+        <input type="text" id="quest-input" placeholder="add a side quest…" autocomplete="off" />
+      </div>
+
+      <ul class="quest-list" id="quest-list"></ul>
+    </section>
+
+    <footer>
+      <span>stay deliberate</span>
+    </footer>
+  </div>
+
+  <script>
+    // ── state ──────────────────────────────────────────
+    const STORAGE_KEY = 'priorities-app-v1';
+
+    const defaultState = {
+      priorities: [
+        { text: '', done: false },
+        { text: '', done: false }
+      ],
+      quests: [],
+      selectedType: 'goal',
+      filter: 'all'
+    };
+
+    let state = loadState();
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return structuredClone(defaultState);
+        const parsed = JSON.parse(saved);
+        return { ...structuredClone(defaultState), ...parsed };
+      } catch {
+        return structuredClone(defaultState);
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    // ── date ───────────────────────────────────────────
+    function renderDate() {
+      const now = new Date();
+      const opts = { weekday: 'long', month: 'long', day: 'numeric' };
+      document.getElementById('date').textContent =
+        now.toLocaleDateString('en-US', opts).toLowerCase();
+    }
+
+    // ── priorities ─────────────────────────────────────
+    function renderPriorities() {
+      document.querySelectorAll('.priority-card').forEach((card) => {
+        const slot = parseInt(card.dataset.slot, 10);
+        const data = state.priorities[slot];
+        const text = card.querySelector('.priority-text');
+
+        if (text !== document.activeElement) {
+          text.textContent = data.text || '';
+        }
+
+        card.classList.toggle('filled', !!data.text.trim());
+        card.classList.toggle('done', data.done && !!data.text.trim());
+
+        const toggleBtn = card.querySelector('[data-action="toggle"]');
+        toggleBtn.textContent = data.done ? 'unmark' : 'mark done';
+      });
+    }
+
+    function bindPriorities() {
+      document.querySelectorAll('.priority-card').forEach((card) => {
+        const slot = parseInt(card.dataset.slot, 10);
+        const text = card.querySelector('.priority-text');
+
+        text.addEventListener('input', () => {
+          state.priorities[slot].text = text.textContent.trim();
+          if (!state.priorities[slot].text) state.priorities[slot].done = false;
+          saveState();
+          // light re-render without overwriting the active text
+          const card = text.closest('.priority-card');
+          card.classList.toggle('filled', !!state.priorities[slot].text);
+          card.classList.toggle('done', state.priorities[slot].done && !!state.priorities[slot].text);
+        });
+
+        text.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            text.blur();
+          }
+        });
+
+        card.querySelector('[data-action="toggle"]').addEventListener('click', () => {
+          if (!state.priorities[slot].text.trim()) return;
+          state.priorities[slot].done = !state.priorities[slot].done;
+          saveState();
+          renderPriorities();
+        });
+
+        card.querySelector('[data-action="clear"]').addEventListener('click', () => {
+          state.priorities[slot] = { text: '', done: false };
+          saveState();
+          renderPriorities();
+        });
+      });
+    }
+
+    // ── side quests ────────────────────────────────────
+    const FLIP_EASING = 'cubic-bezier(0.22, 1, 0.36, 1)';
+    const FLIP_DURATION = 360;
+
+    function renderQuests() {
+      const list = document.getElementById('quest-list');
+
+      // FLIP — capture old positions before tearing down the list
+      const oldRects = new Map();
+      list.querySelectorAll('.quest-item').forEach((el) => {
+        oldRects.set(el.dataset.id, el.getBoundingClientRect());
+      });
+
+      let visible = state.quests;
+      if (state.filter === 'goal') visible = visible.filter((q) => q.type === 'goal' && !q.done);
+      else if (state.filter === 'bucket') visible = visible.filter((q) => q.type === 'bucket' && !q.done);
+      else if (state.filter === 'done') visible = visible.filter((q) => q.done);
+      else visible = visible.filter((q) => !q.done);
+
+      // open lists preserve manual (array) order; done view sorts newest-completed first
+      if (state.filter === 'done') {
+        visible = visible.slice().sort((a, b) => (b.completedAt || 0) - (a.completedAt || 0));
+      }
+
+      list.innerHTML = '';
+
+      if (visible.length === 0) {
+        const li = document.createElement('li');
+        li.className = 'empty-state';
+        li.textContent = state.filter === 'done' ? 'nothing completed yet.' : 'a quiet list. add a side quest above.';
+        list.appendChild(li);
+      } else {
+        visible.forEach((q) => {
+          const el = renderQuestItem(q);
+          // suppress the entrance fade on items that already existed — FLIP handles them
+          if (oldRects.has(q.id)) el.style.animation = 'none';
+          list.appendChild(el);
+        });
+      }
+
+      // FLIP — animate moved items from old position back to new
+      list.querySelectorAll('.quest-item').forEach((el) => {
+        const oldRect = oldRects.get(el.dataset.id);
+        if (!oldRect) return;
+        const newRect = el.getBoundingClientRect();
+        const dy = oldRect.top - newRect.top;
+        if (Math.abs(dy) < 1) return;
+        el.animate(
+          [{ transform: `translateY(${dy}px)` }, { transform: 'translateY(0)' }],
+          { duration: FLIP_DURATION, easing: FLIP_EASING }
+        );
+      });
+
+      const openCount = state.quests.filter((q) => !q.done).length;
+      document.getElementById('quest-count').textContent =
+        openCount === 1 ? '1 open' : `${openCount} open`;
+    }
+
+    let dragId = null;
+
+    function renderQuestItem(q) {
+      const li = document.createElement('li');
+      li.className = 'quest-item' + (q.done ? ' done' : '');
+      li.dataset.id = q.id;
+
+      // drag handle (only enabled outside the 'done' view, which uses its own sort)
+      const reorderable = state.filter !== 'done';
+      const handle = document.createElement('div');
+      handle.className = 'drag-handle';
+      handle.setAttribute('aria-label', 'drag to reorder');
+      handle.innerHTML =
+        '<svg width="10" height="16" viewBox="0 0 10 16" fill="currentColor" aria-hidden="true">' +
+        '<circle cx="2" cy="3" r="1"/><circle cx="8" cy="3" r="1"/>' +
+        '<circle cx="2" cy="8" r="1"/><circle cx="8" cy="8" r="1"/>' +
+        '<circle cx="2" cy="13" r="1"/><circle cx="8" cy="13" r="1"/>' +
+        '</svg>';
+      if (reorderable) {
+        handle.draggable = true;
+        handle.addEventListener('dragstart', (e) => {
+          dragId = q.id;
+          li.classList.add('dragging');
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/plain', q.id);
+          if (e.dataTransfer.setDragImage) e.dataTransfer.setDragImage(li, 12, 18);
+        });
+        handle.addEventListener('dragend', () => {
+          li.classList.remove('dragging');
+          document.querySelectorAll('.quest-item').forEach((el) =>
+            el.classList.remove('drop-before', 'drop-after')
+          );
+          dragId = null;
+        });
+      } else {
+        handle.style.display = 'none';
+      }
+
+      const checkbox = document.createElement('div');
+      checkbox.className = 'checkbox';
+      checkbox.addEventListener('click', () => toggleQuest(q.id));
+
+      const tag = document.createElement('span');
+      tag.className = 'type-tag';
+      tag.dataset.type = q.type;
+      tag.textContent = q.type === 'goal' ? 'goal' : 'bucket';
+
+      const text = document.createElement('div');
+      text.className = 'quest-text';
+      text.contentEditable = 'true';
+      text.spellcheck = false;
+      text.textContent = q.text;
+      text.addEventListener('blur', () => {
+        const v = text.textContent.trim();
+        if (!v) {
+          deleteQuest(q.id);
+        } else if (v !== q.text) {
+          q.text = v;
+          saveState();
+        }
+      });
+      text.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          text.blur();
+        }
+      });
+
+      const del = document.createElement('button');
+      del.className = 'delete-btn';
+      del.setAttribute('aria-label', 'delete');
+      del.innerHTML = '&times;';
+      del.addEventListener('click', () => deleteQuest(q.id));
+
+      li.appendChild(handle);
+      li.appendChild(checkbox);
+      li.appendChild(tag);
+      li.appendChild(text);
+      li.appendChild(del);
+      return li;
+    }
+
+    function reorderQuests(draggedId, targetId, position) {
+      if (draggedId === targetId) return;
+      const fromIdx = state.quests.findIndex((q) => q.id === draggedId);
+      if (fromIdx === -1) return;
+      const [item] = state.quests.splice(fromIdx, 1);
+      let toIdx = state.quests.findIndex((q) => q.id === targetId);
+      if (toIdx === -1) {
+        state.quests.push(item);
+      } else {
+        if (position === 'after') toIdx += 1;
+        state.quests.splice(toIdx, 0, item);
+      }
+      saveState();
+      renderQuests();
+
+      // soft "slot-in" flourish on the dropped item: subtle sage wash that fades
+      const dropped = document.querySelector(`.quest-item[data-id="${draggedId}"]`);
+      if (dropped) {
+        dropped.animate(
+          [
+            { backgroundColor: 'rgba(200, 212, 191, 0.32)', borderRadius: '6px' },
+            { backgroundColor: 'rgba(200, 212, 191, 0.18)', borderRadius: '6px', offset: 0.4 },
+            { backgroundColor: 'rgba(200, 212, 191, 0)', borderRadius: '6px' }
+          ],
+          { duration: 700, easing: 'ease-out' }
+        );
+      }
+    }
+
+    function addQuest(text, type) {
+      const t = text.trim();
+      if (!t) return;
+      state.quests.push({
+        id: cryptoId(),
+        text: t,
+        type,
+        done: false,
+        createdAt: Date.now(),
+        completedAt: null
+      });
+      saveState();
+      renderQuests();
+    }
+
+    function toggleQuest(id) {
+      const q = state.quests.find((x) => x.id === id);
+      if (!q) return;
+      q.done = !q.done;
+      q.completedAt = q.done ? Date.now() : null;
+      saveState();
+      renderQuests();
+    }
+
+    function deleteQuest(id) {
+      state.quests = state.quests.filter((q) => q.id !== id);
+      saveState();
+      renderQuests();
+    }
+
+    function cryptoId() {
+      if (window.crypto?.randomUUID) return crypto.randomUUID();
+      return 'q-' + Math.random().toString(36).slice(2, 10);
+    }
+
+    // ── list-level drag handlers (lenient hit detection) ──
+    function findClosestRow(list, clientY) {
+      const rows = Array.from(list.querySelectorAll('.quest-item:not(.dragging)'));
+      if (rows.length === 0) return null;
+      let closest = null;
+      let closestDist = Infinity;
+      rows.forEach((row) => {
+        const rect = row.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const dist = Math.abs(clientY - center);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = { el: row, center };
+        }
+      });
+      return closest;
+    }
+
+    function bindListDragHandlers() {
+      const list = document.getElementById('quest-list');
+
+      list.addEventListener('dragover', (e) => {
+        if (!dragId || state.filter === 'done') return;
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        const closest = findClosestRow(list, e.clientY);
+        if (!closest) return;
+        list.querySelectorAll('.quest-item').forEach((el) =>
+          el.classList.remove('drop-before', 'drop-after')
+        );
+        const above = e.clientY < closest.center;
+        closest.el.classList.toggle('drop-before', above);
+        closest.el.classList.toggle('drop-after', !above);
+      });
+
+      list.addEventListener('dragleave', (e) => {
+        if (!list.contains(e.relatedTarget)) {
+          list.querySelectorAll('.quest-item').forEach((el) =>
+            el.classList.remove('drop-before', 'drop-after')
+          );
+        }
+      });
+
+      list.addEventListener('drop', (e) => {
+        if (!dragId || state.filter === 'done') return;
+        e.preventDefault();
+        const closest = findClosestRow(list, e.clientY);
+        if (!closest) return;
+        const above = e.clientY < closest.center;
+        reorderQuests(dragId, closest.el.dataset.id, above ? 'before' : 'after');
+      });
+    }
+
+    // ── controls ───────────────────────────────────────
+    function bindControls() {
+      const input = document.getElementById('quest-input');
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          addQuest(input.value, state.selectedType);
+          input.value = '';
+        }
+      });
+
+      document.querySelectorAll('.type-pill').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.selectedType = btn.dataset.type;
+          document.querySelectorAll('.type-pill').forEach((b) =>
+            b.classList.toggle('active', b.dataset.type === state.selectedType)
+          );
+          saveState();
+          input.focus();
+        });
+      });
+
+      document.querySelectorAll('.filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.filter = btn.dataset.filter;
+          document.querySelectorAll('.filter-btn').forEach((b) =>
+            b.classList.toggle('active', b.dataset.filter === state.filter)
+          );
+          saveState();
+          renderQuests();
+        });
+      });
+
+    }
+
+    // ── boot ───────────────────────────────────────────
+    function init() {
+      renderDate();
+      // hydrate UI selectors from state
+      document.querySelectorAll('.type-pill').forEach((b) =>
+        b.classList.toggle('active', b.dataset.type === state.selectedType)
+      );
+      document.querySelectorAll('.filter-btn').forEach((b) =>
+        b.classList.toggle('active', b.dataset.filter === state.filter)
+      );
+      bindPriorities();
+      bindControls();
+      bindListDragHandlers();
+      renderPriorities();
+      renderQuests();
+    }
+
+    init();
+  </script>
+</body>
+</html>
